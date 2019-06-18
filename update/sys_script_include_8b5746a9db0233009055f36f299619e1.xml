@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_58872_needit.NeedItUtils</api_name>
+        <client_callable>false</client_callable>
+        <description>Utils Script Include for the NeedIt application.</description>
+        <name>NeedItUtils</name>
+        <script><![CDATA[var NeedItUtils = Class.create();
+NeedItUtils.prototype = {
+	initialize: function() {
+		// initialize common variables
+		this.rightnow = new GlideDateTime();
+		
+	},
+	isDatePast: function(strDate){
+		// Create GlideDateTime objects for the passed in date
+		var testdate = new GlideDateTime(strDate);
+		
+		// If the testdate is before rightnow, return true, else return false
+		if (testdate.before(this.rightnow)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	isDateToday: function(strDate) {
+		var testdate = new GlideDateTime(strDate);
+		
+		if (testdate.getLocalDate() == this.rightnow.getLocalDate()) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	},
+	type: 'NeedItUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2019-06-15 02:36:42</sys_created_on>
+        <sys_id>8b5746a9db0233009055f36f299619e1</sys_id>
+        <sys_mod_count>7</sys_mod_count>
+        <sys_name>NeedItUtils</sys_name>
+        <sys_package display_value="NeedIt" source="x_58872_needit">6ead8e780f603200cd674f8ce1050ed1</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="NeedIt">6ead8e780f603200cd674f8ce1050ed1</sys_scope>
+        <sys_update_name>sys_script_include_8b5746a9db0233009055f36f299619e1</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2019-06-15 03:00:51</sys_updated_on>
+    </sys_script_include>
+</record_update>
